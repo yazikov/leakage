@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:sws="http://www.springframework.org/schema/web-services"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/web-services
+                           http://www.springframework.org/schema/web-services/web-services.xsd">
+
+    <context:component-scan base-package="ru.rushydro.vniig" />
+
+    <context:property-placeholder location="classpath:jdbc.properties" />
+
+    <sws:annotation-driven />
+
+    <sws:interceptors>
+        <bean id="sensorValidateInterceptor" class="org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor">
+            <description>
+                This interceptor validates both incoming and outgoing message contents according to the 'echo.xsd' XML
+                Schema file.
+            </description>
+            <property name="schema">
+                    <value>/WEB-INF/wsdl/sensors.xsd</value>
+            </property>
+            <!--<property name="schema" value="/WEB-INF/wsdl/sensors.xsd"/>-->
+            <property name="validateRequest" value="true"/>
+            <property name="validateResponse" value="true"/>
+        </bean>
+        <bean class="org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor">
+            <description>
+                This interceptor logs the message payload.
+            </description>
+        </bean>
+    </sws:interceptors>
+
+    <sws:dynamic-wsdl id="sensorsService"
+                      transportUri="http://schemas.xmlsoap.org/soap/http"
+                      serviceName="getSensorValues"
+                      portTypeName="getSensorValuesPort"
+                      targetNamespace="http://i-sensor/webservice"
+                      createSoap11Binding="true"
+                      locationUri="${webservice.host}/ws/sensorsService" >
+        <sws:xsd location="/WEB-INF/wsdl/sensors.xsd" />
+    </sws:dynamic-wsdl>
+
+    <!--<sws:dynamic-wsdl id="sensorsInfoService"-->
+                      <!--transportUri="http://schemas.xmlsoap.org/soap/http"-->
+                      <!--serviceName="getSensorInfoValues"-->
+                      <!--portTypeName="getSensorInfoValuesPort"-->
+                      <!--targetNamespace="http://i-sensor/webservice"-->
+                      <!--createSoap11Binding="true"-->
+                      <!--locationUri="${webservice.host}/ws/sensorsInfoService" >-->
+        <!--<sws:xsd location="/WEB-INF/wsdl/info.xsd" />-->
+    <!--</sws:dynamic-wsdl>-->
+
+</beans>
