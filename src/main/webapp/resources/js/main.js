@@ -13,65 +13,24 @@ $(document).ready(function() {
     //col2 = $('.col2');
     //col3 = $('.col3');
 
-    //if (mapContainer != null) {
-    //    setMapContainerSize(mapContainer);
-        scrollToCenter(mapContainer);
-    //}
+    if (mapContainer != null) {
+        //setMapContainerSize(mapContainer);
+        //scrollToCenter(mapContainer);
+    }
 
     //setColumnSize();
     $(window).resize(function() {
         if (mapContainer != null) {
             //setMapContainerSize();
         }
-        //setColumnSize();
-        setCorrectHeight();
+        //setCorrectHeight();
     });
 
-    setCorrectHeight();
+    //setCorrectHeight();
 
     var pressed = false;
     var start = undefined;
     var startX, startWidth;
-
-    //$('.col1_resize').mousedown(function(e) {
-    //    start = $('.col1');
-    //    pressed = true;
-    //    startX = e.pageX;
-    //    startWidth = start.width();
-    //});
-    //
-    //$('.col3_resize').mousedown(function(e) {
-    //    start = $('.col3');
-    //    pressed = true;
-    //    startX = e.pageX;
-    //    startWidth = start.width();
-    //});
-
-    //$(document).mousemove(function(e) {
-    //    if(pressed) {
-    //        var i = 1;
-    //        var direction = 'left';
-    //        if ($(start).hasClass("col3")) {
-    //            i = -1;
-    //            direction = 'right';
-    //        }
-    //        var width = startWidth + i * (e.pageX - startX);
-    //        if (width < 50) {
-    //            width = 50;
-    //        } else if (width > 300) {
-    //            width = 300;
-    //        }
-    //        $(start).width(width);
-    //        $(start).find('.block').width(width);
-    //        $('.col2').css('margin-' + direction, width);
-    //    }
-    //});
-
-    //$(document).mouseup(function() {
-    //    if(pressed) {
-    //        pressed = false;
-    //    }
-    //});
 
     $('select').select2();
 
@@ -115,21 +74,21 @@ $(document).ready(function() {
             span.removeClass('glyphicon-minus');
             span.addClass('glyphicon-plus');
             centerCol.removeClass('col-xs-' + centerSize);
-            centerCol.addClass('col-xs-' + (centerSize + 2));
-            centerCol.data('size', centerSize + 2);
+            centerCol.addClass('col-xs-' + (centerSize + 1));
+            centerCol.data('size', centerSize + 1);
 
-            col.removeClass('col-xs-3');
+            col.removeClass('col-xs-2');
             col.addClass('col-xs-1');
 
         } else {
             span.removeClass('glyphicon-plus');
             span.addClass('glyphicon-minus');
             centerCol.removeClass('col-xs-' + centerSize);
-            centerCol.addClass('col-xs-' + (centerSize - 2));
-            centerCol.data('size', centerSize - 2);
+            centerCol.addClass('col-xs-' + (centerSize - 1));
+            centerCol.data('size', centerSize - 1);
 
             col.removeClass('col-xs-1');
-            col.addClass('col-xs-3');
+            col.addClass('col-xs-2');
         }
     });
 
@@ -138,8 +97,7 @@ $(document).ready(function() {
 function setCorrectHeight() {
     var height = $('body').height();
     var headerHeight = $('header').height();
-    var footerHeight = $('footer').height();
-    $('.container-wrapper').css('min-height', height - headerHeight - footerHeight + "px")
+    $('.map_container').css('min-height', height - headerHeight - 50 + "px");
 }
 
 function getSensorById(id) {
@@ -179,8 +137,8 @@ function scrollToCenter(elem) {
 }
 
 function setMapContainerSize() {
-    var viewportHeight = $(window).height();
-    mapContainer.height(viewportHeight);
+    var map = ('#map');
+    map.height((496 * map.width() / 1024) + 'px');
 }
 
 function setColumnSize() {

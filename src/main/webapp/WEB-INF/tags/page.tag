@@ -54,24 +54,6 @@
         <div class="header_content">
             <div class="btn-group" role="group" aria-label="...">
                 <div class="btn-group">
-                    <button class="btn btn-default dropdown-toggle menu_btn" type="button" id="dropdownMenu0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Разрезы
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu0">
-                        <li><a href="<spring:url value="/cut/1" />" target="_blank">Разрез 1</a></li>
-                        <li><a href="<spring:url value="/cut/2" />" target="_blank">Разрез 2</a></li>
-                        <li><a href="<spring:url value="/cut/3" />" target="_blank">Разрез 3</a></li>
-                        <li><a href="<spring:url value="/cut/4" />" target="_blank">Разрез 4</a></li>
-                        <li><a href="<spring:url value="/cut/5" />" target="_blank">Разрез 5</a></li>
-                        <li><a href="<spring:url value="/cut/6" />" target="_blank">Разрез 6</a></li>
-                        <li><a href="<spring:url value="/cut/7" />" target="_blank">Разрез 7</a></li>
-                        <li><a href="<spring:url value="/cut/8" />" target="_blank">Разрез 8</a></li>
-                        <li><a href="<spring:url value="/cut/9" />" target="_blank">Разрез 9</a></li>
-                        <li><a href="<spring:url value="/cut/10" />" target="_blank">Разрез 10</a></li>
-                    </ul>
-                </div>
-                <div class="btn-group">
                     <a class="btn btn-default menu_btn" href="<spring:url value="/enter/operateJournal" />" target="_blank">
                         Оперативный диспетчерский журнал
                     </a>
@@ -81,11 +63,6 @@
                         Тренды
                     </a>
                 </div>
-                <%--<div class="btn-group">--%>
-                    <%--<a class="btn btn-default menu_btn" href="<spring:url value="/virtual/sensors" />" target="_blank">--%>
-                        <%--Н/А КИА--%>
-                    <%--</a>--%>
-                <%--</div>--%>
 
             </div>
         </div>
@@ -97,13 +74,6 @@
     </div>
 
 </div>
-
-<c:if test="${!notShow}">
-    <footer>
-        <div>Inversion sensor</div>
-    </footer>
-</c:if>
-
 
 <script src="${mainJs}"></script>
 

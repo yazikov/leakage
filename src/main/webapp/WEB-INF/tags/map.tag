@@ -7,15 +7,15 @@
 <spring:url value="/resources/js/map.js" var="mapJs" />
 
 
-<svg id="map" width="1024" height="${height}" class="map map_${cutId}">
+<svg id="map" width="100%" height="100%" class="map map_${cutId}" viewBox="0 0 1024 496" preserveAspectRatio="none">
     <c:forEach items="${regions}" var="region" varStatus="i">
-        <a xlink:href="<spring:url value="/cut/${region.id}" />" xlink:title="${region.title}" target="_blank">
-            <g>
-                <polygon points="${region.coord}" fill="rgba(255,255,255,0.5)" stroke="blue">
-
-                </polygon>
+        <%--<a xlink:href="<spring:url value="/cut/${region.id}" />" xlink:title="${region.title}" target="_blank">--%>
+            <g class="region" data-id="${region.id}">
+                <polygon points="${region.coord}" fill="rgba(255,255,255,0.5)" stroke="blue"></polygon>
             </g>
-        </a>
+        <%--</a>--%>
+        
+
     </c:forEach>
 
 </svg>

@@ -34,7 +34,27 @@ $(document).ready(function() {
         var me = $(this);
         me.attr('fill', 'rgba(255,255,255,0.5)');
     });
+    var gs = $('.region').click(function(e){
+        showSensorList($(this));
+    });
+
+    $('body').on('click', '.sensor', function() {
+        showSensorInfo($(this));
+    });
+
 });
+
+function showSensorList(region) {
+    var sensorList = $('.sensor-list').empty();
+    var id = region.attr('data-id');
+    for (var i = 0; i < 10; i++) {
+        $('<a href="#" class="list-group-item sensor"> Блок № ' + i + ' региона ' + id + '</a>').appendTo(sensorList);
+    }
+}
+
+function showSensorInfo(sensor) {
+    $('#sensor-info').html("Блок № 1 региона 1<br/>" + "Значение: 1000<br/>" + "Уставка k1: 1000");
+}
 
 function drawMap() {
     var map = $('#map');

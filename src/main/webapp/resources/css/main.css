@@ -100,7 +100,7 @@ header {
 }
 
 .map_container {
-    height: 580px;
+    /*height: 580px;*/
     overflow: auto;
 }
 
@@ -114,6 +114,7 @@ header {
 
 .map_0 {
     background: url("../images/map.jpg") no-repeat;
+    background-size: contain;
 
 }
 
@@ -157,7 +158,7 @@ header {
     height: auto !important;
 }
 
-.sensor {
+.sensor, .region {
     cursor: pointer;
 }
 

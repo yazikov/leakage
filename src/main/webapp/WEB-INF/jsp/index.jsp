@@ -11,26 +11,27 @@
 
 <t:page>
   <jsp:body>
-    <%--<div class="col1">--%>
-      <%--<div class="col1_resize"></div>--%>
-      <%--<div class="block info_block">--%>
-        <%--<div class="panel panel-default">--%>
-          <%--<div class="panel-heading">Информация о датчике</div>--%>
-          <%--<div class="panel-body">--%>
-            <%--<div id="sensor-info" class="alert"></div>--%>
-          <%--</div>--%>
-        <%--</div>--%>
-      <%--</div>--%>
-      <%--<div class="block data_block">--%>
-        <%--<div class="panel panel-default">--%>
-          <%--<div class="panel-heading">Список датчиков</div>--%>
-          <%--<div class="panel-body">--%>
-            <%--<t:tree />--%>
-          <%--</div>--%>
-        <%--</div>--%>
-      <%--</div>--%>
-    <%--</div>--%>
-    <div class="col col-center col-xs-9" data-size="9">
+    <div class="col col-xs-2">
+      <div class="block">
+        <div class="panel panel-default">
+          <div class="panel-heading"><t:btnHide /> Информация о блоке</div>
+          <div class="panel-body">
+            <div id="sensor-info" class="alert"></div>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="panel panel-default">
+          <div class="panel-heading">Список блоков</div>
+          <div class="panel-body">
+            <div class="list-group sensor-list">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col col-center col-xs-8" data-size="8">
       <div class="block">
         <div class="panel panel-default">
           <div class="panel-heading text-center">Карта данных о протечках</div>
@@ -41,10 +42,8 @@
           </div>
         </div>
       </div>
-
     </div>
-    <div class="col col-xs-3">
-    <div class="block">
+    <div class="col col-xs-2">
       <div class="block">
         <div class="panel panel-default">
           <div class="panel-heading text-center"><t:btnHide /> Оперативный журнал событий</div>

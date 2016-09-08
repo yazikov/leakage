@@ -133,28 +133,28 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <id>xjc</id>
-                        <goals>
-                            <goal>xjc</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <schemaDirectory>${project.basedir}/src/main/webapp/WEB-INF/wsdl</schemaDirectory>
-                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-                    <packageName>ru.rushydro.vniig.ws</packageName>
-                    <clearOutputDir>false</clearOutputDir>
-                    <schemaFiles>
-                        sensors.xsd
-                    </schemaFiles>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>jaxb2-maven-plugin</artifactId>-->
+                <!--<version>1.6</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>xjc</id>-->
+                        <!--<goals>-->
+                            <!--<goal>xjc</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<schemaDirectory>${project.basedir}/src/main/webapp/WEB-INF/wsdl</schemaDirectory>-->
+                    <!--<outputDirectory>${project.basedir}/src/main/java</outputDirectory>-->
+                    <!--<packageName>ru.rushydro.vniig.ws</packageName>-->
+                    <!--<clearOutputDir>false</clearOutputDir>-->
+                    <!--<schemaFiles>-->
+                        <!--sensors.xsd-->
+                    <!--</schemaFiles>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
 
         </plugins>
 
