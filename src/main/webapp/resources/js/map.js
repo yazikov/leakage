@@ -25,7 +25,7 @@ var alertSound;
 $(document).ready(function() {
     alertSound = $('#alert_sound');
     //drawMap();
-    var polygons = $('polygon');
+    var polygons = $('.region-rect');
     polygons.mouseover(function() {
         var me = $(this);
         me.attr('fill', 'rgba(173,216,230,0.7)');
@@ -41,6 +41,12 @@ $(document).ready(function() {
     $('body').on('click', '.sensor', function() {
         showSensorInfo($(this));
     });
+
+    //$('#map').click(function(e){
+    //    var h = this.getBoundingClientRect().height;
+    //    alert("x: " + (1024*e.offsetX/h) + "y: " + (1024*e.offsetY/h));
+    //    alert("x: " + e.offsetX + "y: " + e.offsetY);
+    //});
 
 });
 
